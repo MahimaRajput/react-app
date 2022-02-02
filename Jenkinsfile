@@ -9,11 +9,5 @@ pipeline {
                 
             }
         }
-        stage('test') {
-            steps {
-                echo 'test project'
-                sh './jenkins/scripts/test.sh'
-            }
-        }
     }
 }
