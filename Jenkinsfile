@@ -5,24 +5,15 @@ pipeline {
         stage('build') {
             steps {
                 echo 'build project'
-             sh "npm install"
+             sh 'npm install'
                 
             }
         }
         stage('test') {
             steps {
                 echo 'test project'
-                sh "npm test"
+                sh './jenkins/scripts/test.sh'
             }
         }
-       stage('Deploy')
-		{
-			steps
-			{
-			
-				        echo 'deploy project'
-				
-			}
-		}
     }
 }
