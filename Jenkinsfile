@@ -1,18 +1,20 @@
 pipeline {
     agent any
-
     stages {
-        stage('build') {
+       stage('Checkout') 
+		{
+			steps 
+			{
+				git branch: 'master',
+				credentialsId: '0f5a239d-86ca-4a61-bad1-a36f80b67ac6',
+				url: 'https://github.com/MahimaRajput/react-app'
+				
+				stash includes: '**', name: 'builtSources'
+			}
+		}
+        stage('Build') {
             steps {
-                echo 'build project'
-             sh 'npm install'
-                
-            }
-        }
-        stage('test') {
-            steps {
-                echo 'test project'
-                sh './jenkins/scripts/test.sh'
+                bat 'npm install'
             }
         }
     }
