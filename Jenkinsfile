@@ -17,6 +17,12 @@ pipeline {
                 bat 'npm install'
             }
         }
+	    stage('test') {
+            steps {
+                echo 'test project'
+                bat "npm test"
+            }
+        }
 	    stage('Docker Build') 
 		{
 			steps 
