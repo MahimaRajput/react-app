@@ -12,12 +12,7 @@ pipeline {
 				stash includes: '**', name: 'builtSources'
 			}
 		}
-	    stage('test') {
-            steps {
-                echo 'test project'
-                bat "npm test"
-            }
-        }
+	   
         stage('Build') {
             steps {
                 bat 'npm install'
