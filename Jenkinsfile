@@ -12,7 +12,6 @@ pipeline {
 				stash includes: '**', name: 'builtSources'
 			}
 		}
-	   
         stage('Build') {
             steps {
                 bat 'npm install'
